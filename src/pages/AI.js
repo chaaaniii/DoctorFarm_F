@@ -28,7 +28,7 @@ export default function AI() {
         onChange={onChange}
         maxNumber={maxNumber}
         dataURLKey="data_url"
-        acceptType={["jpg"]}
+        acceptType={["jpg","jfif"]}
       >
         {({
           imageList,
@@ -53,7 +53,7 @@ export default function AI() {
                   <button className="AI-button"
                     onClick={() => {
                       const formdata = new FormData();
-                      formdata.append("image", {image}['image']);
+                      formdata.append("image", {image}['image']['file']);
                       console.log({image}['image'])
                       console.log(user)
                       console.log(localStorage.getItem("token"))
@@ -68,6 +68,12 @@ export default function AI() {
                       }})
                     .then(function (response) {
                       console.log(response);
+                      axios.get("http://127.0.0.1:8000/ML/",
+                      {params: {user}}
+                      )
+                      .then(function(response){
+                        console.log(response)
+                      })
                     })
                     .catch(function (error) {
                       console.log(error);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext  } from "react";
 // import styled from "@emotion/styled";
 import classes from "./Navbar.module.scss";
 import { Link, useNavigate } from "react-router-dom";
@@ -166,10 +166,10 @@ const Navbar = () => {
                         </li>
                     </ul>
                     {localStorage.getItem("user") ? (
-                        <p onClick={logoutUser}>Logout</p>
+                        <button onClick={logoutUser}>Logout</button>
                             )
                     : (
-                        <Link to="/login" >Login</Link>
+                        <button onClick={ctaClickHandler} >Login</button>
                         )}
           
                 </nav>
