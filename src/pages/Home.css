@@ -1,0 +1,9 @@
+.detected-imgbox{
+    height: 400px;
+    width: 400px;
+    font-size: large;
+    border: 3px solid black;
+    margin-top: 5%;
+    margin-left: 5%;
+
+}

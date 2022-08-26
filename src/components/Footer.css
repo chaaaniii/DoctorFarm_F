@@ -1,0 +1,32 @@
+.footer-container{
+    width: 100%;
+    height: 100px;
+    background-color: #fffdfd;
+    padding: 4rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-links{
+    display: flex;
+    transition: all;
+}
+
+.footer-icon{
+    width: 60px;
+    height: 60px;
+}
+
+.suhyun-yoo{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.footer-links{
+    float: left;
+}

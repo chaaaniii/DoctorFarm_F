@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+$Poppins: "Poppins", sans-serif;
+
+// colors
+$dark: rgb(29, 29, 29);
+$light: #fff;
+$primary: #2955b4;
+$bg: rgb(40, 103, 175);
+
+// spacing
+$spacing-md: 16px;
+$spacing-lg: 32px;
+
+// border radius
+$borderRadius: 12px;
+
+// header height
+$headerHeight: 60px;
+
+@mixin breakpoint($point) {
+    @if $point == md {
+        // 890px
+        @media (min-width: 890px) {
+            @content;
+        }
+    }
+}
+
