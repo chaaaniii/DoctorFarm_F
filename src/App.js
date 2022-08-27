@@ -37,7 +37,7 @@ function App() {
                 <Route path='/ImageList' element={<ImageList/>}></Route>
                 <Route path='/AI' element={<AI/>}></Route>
                 <Route path='/Login' element={<LoginPage/>}></Route>
-                <Route path='/Signup' element={<RegisterPage/>}></Route>
+                <Route path='/RegisterPage' element={<RegisterPage/>}></Route>
             </Routes>
             {/* </RecoilRoot> */}
           <Footer/>

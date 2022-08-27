@@ -55,7 +55,7 @@ export const AuthProvider = ({children}) => {
         localStorage.removeItem('token')
         localStorage.removeItem('user')
         removeCookie("refresh");
-        alert('logout')
+        // alert('logout')
         // history.push('/login')
     }
 
@@ -99,7 +99,7 @@ export const AuthProvider = ({children}) => {
         let data = await response.json()
         
         if (response.status === 200){
-            localStorage.setItem('token', data.access_token);
+            localStorage.setItem('token', data.access);
             setAccessToken(data.access_token);
         }else{
             logoutUser()
