@@ -1,10 +1,14 @@
 import React, { useContext, useState } from "react";
-// import ReactDOM from "react-dom";
 import ImageUploading from "react-images-uploading";
 import axios from "axios";
 import AuthContext from '../context/AuthContext'
-
 import "./AI.scss";
+import "antd/dist/antd.min.css";
+import { Carousel, Card } from "antd";
+import pepper from '../components/img/berry.jpg'
+import ad from '../components/img/ad.png'
+
+import Loading from "../loading/loading";
 
 export default function AI() {
   const [images, setImages] = React.useState([]);
@@ -20,7 +24,10 @@ export default function AI() {
 
   const firmUser = localStorage.getItem("user");
 
+  //로딩 스피너 부분
+  const [loading, setloading] = useState(true);
 
+  const { Meta } = Card;
 
 
   return (
@@ -65,7 +72,7 @@ export default function AI() {
                           console.log({ image }['image'])
                           console.log(user)
                           console.log(localStorage.getItem("token"))
-                          formdata.append('email', user)
+                          formdata.append('email', firmUser)
                           // formdata.append("title", { title }["title"]);
 
                           axios
@@ -83,6 +90,24 @@ export default function AI() {
                                 .then(function (response) {
                                   console.log(response)
                                   setFlag(false)
+                                  setloading(true)
+                                  // setTimeout(() => console.log("after"), 3000);
+                                  // setTimeout()
+
+                                  axios
+                                    .get("http://127.0.0.1:8000/detected_image/", {
+                                      headers: {
+                                        Authorization: `Bearer ${localStorage.getItem("token")}`,
+                                      },
+                                    })
+                                    .then(function (response) {
+                                      console.log(response.data);
+                                      setdImage(response.data[0].image);
+                                      setloading(false)
+                                    })
+                                    .catch(function (error) {
+                                      console.log(error);
+                                    })
                                 })
                             })
                             .catch(function (error) {
@@ -105,31 +130,39 @@ export default function AI() {
 
       ) : (
         <div>
-          <h1>111</h1>
-          <button
-            onClick={() =>
-              axios
-                .get("http://127.0.0.1:8000/detected_image/", {
-                  headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
-                  },
-                })
-                .then(function (response) {
-                  console.log(response.data);
-                  setdImage(response.data[0].image);
-                })
-                .catch(function (error) {
-                  console.log(error);
-                })
-            }
-          >
-            detected_image
-          </button>
-          <img src={dImage} width="600" height="400"></img>
-          <button onClick={() => {
-             setFlag(true)
-             setdImage(null)
-           }}>back</button>
+          &nbsp;
+          {loading ?
+            <Loading />
+            : (
+              <div>
+                <img className="dimg" src={dImage} width="600" height="400"></img>
+                <div data-aos="fade-up-left" className='Card'>
+                  <span className='Card__Card1'>
+                    <Card hoverable style={{ width: 300 }} cover={<img src={pepper} />}>
+                      <Meta title="AI 진단" description="www.ai진단.com" />
+                    </Card>
+                  </span>
+                  <span className='Card__Card1'>
+                    <Card hoverable style={{ width: 300 }} cover={<img src={pepper} />}>
+                      <Meta title="AI 진단" description="www.ai진단.com" />
+                    </Card>
+                  </span>
+                  <span className='Card__Card1'>
+                    <Card hoverable style={{ width: 300 }} cover={<img src={pepper} />}>
+                      <Meta title="AI 진단" description="www.ai진단.com" />
+                    </Card>
+                  </span>
+                </div>
+                <img src={ad}></img>
+                <button onClick={() => {
+                  setFlag(true)
+                  setdImage(null)
+                }}>back</button>
+              </div>
+            )
+
+          }
+
         </div>
       )}
 
@@ -137,5 +170,3 @@ export default function AI() {
   );
 }
 
-// const rootElement = document.getElementById("root");
-// ReactDOM.render(<AI/>, rootElement);

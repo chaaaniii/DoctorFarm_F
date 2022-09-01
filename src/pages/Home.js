@@ -13,21 +13,22 @@ export default function Home() {
 
   return (
     <>
-        &nbsp;
-        <div className='detected-imgbox'>image</div>
-        <div data-aos="fade-up-left" className= 'Card'>
+
+      &nbsp;
+      <div className='detected-imgbox'>image</div>
+      <div data-aos="fade-up-left" className='Card'>
         <span className='Card__Card1'>
           <Card hoverable style={{ width: 300 }} cover={<img src={pepper} />}>
             <Meta title="AI 진단" description="www.ai진단.com" />
           </Card>
         </span>
         <span className='Card__Card1'>
-        <Card hoverable style={{ width: 300 }} cover={<img src={pepper} />}>
+          <Card hoverable style={{ width: 300 }} cover={<img src={pepper} />}>
             <Meta title="AI 진단" description="www.ai진단.com" />
           </Card>
         </span>
         <span className='Card__Card1'>
-        <Card hoverable style={{ width: 300 }} cover={<img src={pepper} />}>
+          <Card hoverable style={{ width: 300 }} cover={<img src={pepper} />}>
             <Meta title="AI 진단" description="www.ai진단.com" />
           </Card>
         </span>

@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React, { useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 // import './RestAPI.css';
 import axios from 'axios'; // fetch 보단 axios를 사용하자
 import Cropper from 'react-cropper';
@@ -14,7 +14,7 @@ function RestAPI() {
 
     // const [title , setTitle] = useState("");
     // const [image , setImage] = useState('');
-    
+
     const cropperRef = useRef(null);
     // 유저가 첨부한 이미지
     // const [inputImage, setInputImage] = useState(null);
@@ -25,22 +25,22 @@ function RestAPI() {
         const imageElement = cropperRef?.current;
         const cropper = imageElement?.cropper;
         setCroppedImage(cropper.getCroppedCanvas().toDataURL());
-    };  
+    };
 
     const dataURLtoFile = () => {
-        let dataurl = {croppedImage}['croppedImage']
+        let dataurl = { croppedImage }['croppedImage']
         // console.log(dataurl)
         var arr = dataurl.split(','),
             mime = arr[0].match(/:(.*?);/)[1],
-            bstr = atob(arr[1]), 
-            n = bstr.length, 
+            bstr = atob(arr[1]),
+            n = bstr.length,
             u8arr = new Uint8Array(n);
-            
-        while(n--){
+
+        while (n--) {
             u8arr[n] = bstr.charCodeAt(n);
         }
-        
-        var file = new File([u8arr], 'base64_to_img.jpg', {type:mime});
+
+        var file = new File([u8arr], 'base64_to_img.jpg', { type: mime });
         console.log(file)
         // console.log(typeof(file))
         // console.log(file.name)
@@ -49,103 +49,103 @@ function RestAPI() {
         fd.append('image', file);
         // fd.append('title', file.name);
         axios
-        .post('http://127.0.0.1:8000/api/image/', fd, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-        })
-        .then(function(response){
-            console.log(response);
-            response['status'] === 200 || 201 ? console.log('ITS 200 OR 201') : console.log('ITS not working!')
-            
-        })
-        .catch(function(error){
-            console.log(error);
-        });
+            .post('http://127.0.0.1:8000/api/image/', fd, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            .then(function (response) {
+                console.log(response);
+                response['status'] === 200 || 201 ? console.log('ITS 200 OR 201') : console.log('ITS not working!')
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
-    const fileTypes = ["JPEG", "PNG", "GIF","JPG"];
+    const fileTypes = ["JPEG", "PNG", "GIF", "JPG"];
 
 
-      const [file, setFile] = useState(null);
-      const handleChange = (file) => {
-    //   const handleChange = (e) => {
+    const [file, setFile] = useState(null);
+    const handleChange = (file) => {
+        //   const handleChange = (e) => {
         setFile(URL.createObjectURL(file[0]));
         // setFile(URL.createObjectURL(e.target.files[0]));
         console.log(file[0])
-        console.log(typeof(file))
+        console.log(typeof (file))
 
-      };
-      
-      const [ScrollY, setScrollY] = useState(0);
-      const [BtnStatus, setBtnStatus] = useState(false); // 버튼 상태
-      
-      const handleFollow = () => {
+    };
+
+    const [ScrollY, setScrollY] = useState(0);
+    const [BtnStatus, setBtnStatus] = useState(false); // 버튼 상태
+
+    const handleFollow = () => {
         setScrollY(window.pageYOffset);
-        if(ScrollY > 100) {
-          // 100 이상이면 버튼이 보이게
-          setBtnStatus(true);
+        if (ScrollY > 100) {
+            // 100 이상이면 버튼이 보이게
+            setBtnStatus(true);
         } else {
-          // 100 이하면 버튼이 사라지게
-          setBtnStatus(false);
+            // 100 이하면 버튼이 사라지게
+            setBtnStatus(false);
         }
-      }
-    
-      const handleTop = () => {  // 클릭하면 스크롤이 위로 올라가는 함수
+    }
+
+    const handleTop = () => {  // 클릭하면 스크롤이 위로 올라가는 함수
         window.scrollTo({
-          top: 0,
-          behavior: "smooth"
+            top: 0,
+            behavior: "smooth"
         });
         setScrollY(0);  // ScrollY 의 값을 초기화
         setBtnStatus(false); // BtnStatus의 값을 false로 바꿈 => 버튼 숨김
-      }
-    
-      useEffect(() => {
+    }
+
+    useEffect(() => {
         const watch = () => {
-          window.addEventListener('scroll', handleFollow)
+            window.addEventListener('scroll', handleFollow)
         }
         watch();
         return () => {
-          window.removeEventListener('scroll', handleFollow)
+            window.removeEventListener('scroll', handleFollow)
         }
-      })
+    })
 
     return (
         <div className='wrap'>
-            <button 
+            <button
                 className={BtnStatus ? "topBtn active" : "topBtn"} // 버튼 노출 여부
                 onClick={handleTop}  // 버튼 클릭시 함수 호출
-                >TOP</button>
+            >TOP</button>
             <div>
-            <div className="Crop">
-          <h1>자르고 싶은 영역을 선택해 주세요.</h1>
-          <FileUploader
-            multiple={true}
-            handleChange={handleChange}
-            // handleChange={(e)=>{setFile(URL.createObjectURL(e.target.files[0]))}}
-            name="file"
-            types={fileTypes}
-          />
+                <div className="Crop">
+                    <h1>자르고 싶은 영역을 선택해 주세요.</h1>
+                    <FileUploader
+                        multiple={true}
+                        handleChange={handleChange}
+                        // handleChange={(e)=>{setFile(URL.createObjectURL(e.target.files[0]))}}
+                        name="file"
+                        types={fileTypes}
+                    />
 
-          <div>{file && (
-                    <div>
-                        <Cropper
-                            src={file}
-                            // crop={onCrop}
-                            ref={cropperRef}
-                            style={{ height: 400, width: "100%" }}
-                            initialAspectRatio={16 / 9}
-                        />
-                        
-                        <button onClick={()=>{console.log(typeof({croppedImage}['croppedImage']))}}>CROP LOG type</button>
-                        <button onClick={()=>{console.log({croppedImage})}}>CROP LOG</button>
-                        <button onClick={onCrop}>CROP</button>
-                        
-                    </div>
-                )}</div>
-        </div>
+                    <div>{file && (
+                        <div>
+                            <Cropper
+                                src={file}
+                                // crop={onCrop}
+                                ref={cropperRef}
+                                style={{ height: 400, width: "100%" }}
+                                initialAspectRatio={16 / 9}
+                            />
 
-                            
+                            <button onClick={() => { console.log(typeof ({ croppedImage }['croppedImage'])) }}>CROP LOG type</button>
+                            <button onClick={() => { console.log({ croppedImage }) }}>CROP LOG</button>
+                            <button onClick={onCrop}>CROP</button>
+
+                        </div>
+                    )}</div>
+                </div>
+
+
                 {croppedImage && (
                     <div>
                         <img src={croppedImage} />
@@ -155,32 +155,32 @@ function RestAPI() {
             </div>
             <div className=''>
                 <button
-                onClick={() => {
-                    axios
-                        .get('http://127.0.0.1:8000/image/',{
-                            headers: {
-                                Authorization: `Bearer ${localStorage.getItem('token')}`,
-                            }
-                        })
-                        .then((response) => {
-                            
-                            // let copy = response.data['results'] 
-                            // setText(response.data['results'][4].image);
-                            // console.log('response.data-> ', typeof(response.data));
-                            console.log('response-> ', response['status']);
-                            // console.log(response.data['results']);
-                            // console.log(typeof(response.data['results'][0].image));
-                            console.log(response.data[0].image);
-                            setImg(response.data[0].image);
-                        })
-                        .catch(function(error){
-                            console.log(error);
-                        });
-                }}
+                    onClick={() => {
+                        axios
+                            .get('http://127.0.0.1:8000/image/', {
+                                headers: {
+                                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                                }
+                            })
+                            .then((response) => {
+
+                                // let copy = response.data['results'] 
+                                // setText(response.data['results'][4].image);
+                                // console.log('response.data-> ', typeof(response.data));
+                                console.log('response-> ', response['status']);
+                                // console.log(response.data['results']);
+                                // console.log(typeof(response.data['results'][0].image));
+                                console.log(response.data[0].image);
+                                setImg(response.data[0].image);
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+                    }}
                 >
-                GET
+                    GET
                 </button>
-                
+
 
                 {/* <div>
                     <input type='file' accept='img/*' onChange={(e)=>setImage(e.target.files[0])}></input>
@@ -215,7 +215,7 @@ function RestAPI() {
                 </div> */}
             </div>
         </div>
-      );
+    );
 }
 
 export default RestAPI;

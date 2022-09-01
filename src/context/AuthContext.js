@@ -78,6 +78,7 @@ export const AuthProvider = ({children}) => {
             setUser(data.user.email);
             setAccessToken(data.access_token);
             localStorage.setItem('token', data.access_token);
+            localStorage.setItem('user', data.user.email);
             setCookie('refresh', data.refresh_token)
             // history.push('/')
         }else{

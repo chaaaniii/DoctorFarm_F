@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import "antd/dist/antd.min.css";
 import { Carousel, Card } from "antd";
 import pepper from '../components/img/berry.jpg'
@@ -30,54 +30,54 @@ const contentStyle = {
 };
 
 
-  
-        
 
-export default function Main() { 
+
+
+export default function Main() {
 
   const [ScrollY, setScrollY] = useState(0);
-      const [BtnStatus, setBtnStatus] = useState(false); // 버튼 상태
-      
-      const handleFollow = () => {
-        setScrollY(window.pageYOffset);
-        if(ScrollY > 50) {
-          // 100 이상이면 버튼이 보이게
-          setBtnStatus(true);
-        } else {
-          // 100 이하면 버튼이 사라지게
-          setBtnStatus(false);
-        }
-      }
-    
-      const handleTop = () => {  // 클릭하면 스크롤이 위로 올라가는 함수
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-        setScrollY(0);  // ScrollY 의 값을 초기화
-        setBtnStatus(false); // BtnStatus의 값을 false로 바꿈 => 버튼 숨김
-      }
-    
-      useEffect(() => {
-        const watch = () => {
-          window.addEventListener('scroll', handleFollow)
-        }
-        watch();
-        return () => {
-          window.removeEventListener('scroll', handleFollow)
-        }
-      })
+  const [BtnStatus, setBtnStatus] = useState(false); // 버튼 상태
 
-      useEffect(()=>{
-        AOS.init();
-      })
-      
-      const { Meta } = Card;
+  const handleFollow = () => {
+    setScrollY(window.pageYOffset);
+    if (ScrollY > 50) {
+      // 100 이상이면 버튼이 보이게
+      setBtnStatus(true);
+    } else {
+      // 100 이하면 버튼이 사라지게
+      setBtnStatus(false);
+    }
+  }
 
-  
-  return(
+  const handleTop = () => {  // 클릭하면 스크롤이 위로 올라가는 함수
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+    setScrollY(0);  // ScrollY 의 값을 초기화
+    setBtnStatus(false); // BtnStatus의 값을 false로 바꿈 => 버튼 숨김
+  }
+
+  useEffect(() => {
+    const watch = () => {
+      window.addEventListener('scroll', handleFollow)
+    }
+    watch();
+    return () => {
+      window.removeEventListener('scroll', handleFollow)
+    }
+  })
+
+  useEffect(() => {
+    AOS.init();
+  })
+
+  const { Meta } = Card;
+
+
+  return (
     <div className='Body'>
-      
+
       <div className='banner'>
         <Carousel autoplay>
           <div className='Mainhead'>
@@ -95,19 +95,19 @@ export default function Main() {
         </Carousel>
       </div>
 
-      <div data-aos="fade-up-left" className= 'Card'>
+      <div data-aos="fade-up-left" className='Card'>
         <span className='Card__Card1'>
           <Card hoverable style={{ width: 330 }} cover={<img src={pepper} />}>
             <Meta title="AI 진단" description="www.ai진단.com" />
           </Card>
         </span>
         <span className='Card__Card1'>
-        <Card hoverable style={{ width: 330 }} cover={<img src={pepper} />}>
+          <Card hoverable style={{ width: 330 }} cover={<img src={pepper} />}>
             <Meta title="AI 진단" description="www.ai진단.com" />
           </Card>
         </span>
         <span className='Card__Card1'>
-        <Card hoverable style={{ width: 330 }} cover={<img src={pepper} />}>
+          <Card hoverable style={{ width: 330 }} cover={<img src={pepper} />}>
             <Meta title="AI 진단" description="www.ai진단.com" />
           </Card>
         </span>
@@ -133,21 +133,21 @@ export default function Main() {
         </Carousel>
       </div>
 
-    <ScrollContainer>
-  <ScrollPage>
-    <Animator animation={batch(FadeIn(0,500))}>
-     <img style={contentStyle} src={bggif}></img>
-   </Animator>
-  </ScrollPage>
-</ScrollContainer>
-          <div >
-          <button 
-              className={BtnStatus ? "topBtn active" : "topBtn"} // 버튼 노출 여부
-              onClick={handleTop}  // 버튼 클릭시 함수 호출
-              >TOP</button>
-          </div>
+      <ScrollContainer>
+        <ScrollPage>
+          <Animator animation={batch(FadeIn(0, 500))}>
+            <img style={contentStyle} src={bggif}></img>
+          </Animator>
+        </ScrollPage>
+      </ScrollContainer>
+      <div >
+        <button
+          className={BtnStatus ? "topBtn active" : "topBtn"} // 버튼 노출 여부
+          onClick={handleTop}  // 버튼 클릭시 함수 호출
+        >TOP</button>
+      </div>
     </div>
-    
+
   );
 }
 
