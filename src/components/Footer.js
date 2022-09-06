@@ -9,6 +9,16 @@ import { Link } from "react-router-dom";
 export default function Footer() {
     return (
         <div className='footer-container'>
+            <div className='introduce'>
+                <h3><b>Introduce</b></h3>
+                <p>
+                    <span>YEONGCHAN JO [Front-End]</span>
+                    <span>SUNGHOON KIM [YOLOv5]</span>
+                    <span>MINJE SUNG [AI , ML] </span>
+                    <span>HONGJUN CHOI [Back-End]</span>
+                    <span>HYUNJI JUNG [Data pre-processing]</span>
+                </p>
+            </div>
             <div className='footer-links'>
                 <div className='footer-icon'>
                     <a href="https://www.linkedin.com/in/gabriel-e-l-machado/" className="contact-link">
@@ -21,7 +31,7 @@ export default function Footer() {
                     </Link>
                 </div>
 
-                </div>
             </div>
+        </div>
     )
 }

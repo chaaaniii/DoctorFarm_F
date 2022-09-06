@@ -14,8 +14,11 @@ import ImageList from './pages/ImageList';
 import LoginPage from './pages/LoginPage';
 import Navbar from './components/Navbar';
 import Footer from "./components/Footer";
+import Scrolltop from './components/Scrolltop';
 import Post from "./pages/Post";
 import AI from "./pages/AI";
+import Mypage from './pages/Mypage';
+import SolutionsBoard from './pages/SolutionsBoard';
 import { AuthProvider } from './context/AuthContext'
 
 // import { AiOutlinePicture } from "react-icons/ai";
@@ -28,7 +31,6 @@ function App() {
           <AuthProvider>
             <ScrollToTop />
             <Navbar />
-            {/* <AiOutlinePicture  className='react-icon'/> */}
             <Routes>
               <Route path='/' element={<RestAPI />}></Route>
               <Route path='/1' element={<Main />}></Route>
@@ -38,8 +40,11 @@ function App() {
               <Route path='/AI' element={<AI />}></Route>
               <Route path='/Login' element={<LoginPage />}></Route>
               <Route path='/RegisterPage' element={<RegisterPage />}></Route>
+              <Route path='/mypage/post' element={<Post />}></Route>
+              <Route path='/mypage' element={<Mypage />}></Route>
+              <Route path='/solutions' element={<SolutionsBoard />}></Route>
             </Routes>
-            {/* </RecoilRoot> */}
+            <Scrolltop />
             <Footer />
           </AuthProvider>
         </BrowserRouter>
