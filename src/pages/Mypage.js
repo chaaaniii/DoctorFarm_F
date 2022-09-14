@@ -20,7 +20,7 @@ const Mypage = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get("http://127.0.0.1:8000/accounts/user", {
+        const res = await axios.get("http://localhost:8000/accounts/user", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -38,7 +38,7 @@ const Mypage = () => {
     async function fetchData2() {
       console.log("Img List ON screen");
       try {
-        const res = await axios.get("http://127.0.0.1:8000/post/mypage", {
+        const res = await axios.get("http://localhost:8000/post/mypage", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

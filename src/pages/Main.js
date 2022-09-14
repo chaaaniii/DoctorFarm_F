@@ -1,32 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "antd/dist/antd.min.css";
-import { Carousel, Card } from "antd";
-import pepper from '../components/img/berry.jpg'
-import bggif from '../components/img/1oxd.gif'
+// import { Carousel, Card } from "antd";
+// import pepper from '../components/img/berry.jpg'
+// import bggif from '../components/img/1oxd.gif'
 import './Main.scss'
 import AOS from "aos";
 import "aos/dist/aos.css";
 //스코롤 모션
-import { Animator, ScrollContainer, ScrollPage, batch, FadeIn } from "react-scroll-motion";
+// import { Animator, ScrollContainer, ScrollPage, batch, FadeIn } from "react-scroll-motion";
 
 
 
-const contentStyle = {
-  height: '300px',
-  width: '93%',
-  color: 'black',
-  lineHeight: '160px',
-  textAlign: 'center',
-  BackgroundColor: 'balck',
-  // paddingLeft :'10%' ,
-  // paddingRight : '10%',
-  marginTop: '3%',
-  marginRight: '40%',
-  marginLeft: '3%',
-  marginBottom: '3%'
-};
-
-
+// const contentStyle = {
+//   height: '300px',
+//   width: '93%',
+//   color: 'black',
+//   lineHeight: '160px',
+//   textAlign: 'center',
+//   BackgroundColor: 'balck',
+//   // paddingLeft :'10%' ,
+//   // paddingRight : '10%',
+//   marginTop: '3%',
+//   marginRight: '40%',
+//   marginLeft: '3%',
+//   marginBottom: '3%'
+// };
 
 
 
@@ -35,22 +34,28 @@ export default function Main() {
   useEffect(() => {
     AOS.init();
   })
+  const navigate = useNavigate();
 
-  const { Meta } = Card;
+  const gotoAI = () => {
+    navigate("/AI");
+  }
+
+  // const { Meta } = Card;
 
   return (
     <div className='Body'>
-
-      <div className='banner'>
-
-        <div className='Mainhead'>
-          <h1 ><b className="AI">Detect Disease with A.I</b></h1>
-          <h3><span className="AI">A.I로 농작물의 병해를 찾고, 그에 따른 솔루션을 받아보세요.</span></h3>
-        </div>
-
+      <div className='Mainhead'>
+        <h1 ><b className="AI">Detect Disease with A.I</b></h1>
+        <h3><span className="AI"> Use AI to detect plant diseases and get the appropriate solution.<br />
+          Learn how other users solved similar diseases and their know-how.<br />
+          Lets all share our knowledge for healthy crops!!
+        </span></h3>
+        <button className='gotoAI' onClick={gotoAI}>AI</button>
       </div>
 
-      <div data-aos="fade-up-left" className='Card'>
+
+
+      {/* <div data-aos="fade-up-left" className='Card'>
         <Carousel
           autoplay
           draggable={true}
@@ -119,8 +124,8 @@ export default function Main() {
             <img style={contentStyle} src={bggif}></img>
           </Animator>
         </ScrollPage>
-      </ScrollContainer>
-    </div>
+      </ScrollContainer> */}
+    </div >
 
   );
 }

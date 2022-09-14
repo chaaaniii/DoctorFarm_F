@@ -145,11 +145,6 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" onClick={menuToggleHandler}>
-                                AI 병해 진단
-                            </Link>
-                        </li>
-                        <li>
                             <Link to="/dmd" onClick={menuToggleHandler}>
                                 솔루션
                             </Link>
@@ -160,7 +155,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/Inform" onClick={menuToggleHandler}>
+                            <Link to="/mypage" onClick={menuToggleHandler}>
                                 회원정보
                             </Link>
                         </li>
