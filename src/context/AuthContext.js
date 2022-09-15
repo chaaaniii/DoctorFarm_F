@@ -5,7 +5,6 @@ const AuthContext = createContext()
 
 export default AuthContext;
 
-
 export const AuthProvider = ({children}) => {
     let [accessToken, setAccessToken] = useState(()=> localStorage.getItem('token') ? localStorage.getItem('token') : null)
     let [loading, setLoading] = useState(true)
@@ -32,7 +31,7 @@ export const AuthProvider = ({children}) => {
             setUser(data.user.email);
             console.log(data.user.email)
             // document.location.href = '/1'
-            navigate("/1");
+            navigate("/");
         })
         .catch(error => {
             alert(error)

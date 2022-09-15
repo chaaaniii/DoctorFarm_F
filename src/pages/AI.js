@@ -7,15 +7,15 @@ import "antd/dist/antd.min.css";
 import { Carousel, Card } from "antd";
 import pepper from "../components/img/berry.jpg";
 import ad from "../components/img/ad.png";
-
 import Loading from "../loading/loading";
+import drfarmlogo from "../components/img/제목 없음.png"
+import { useNavigate } from "react-router-dom"
+
 
 export default function AI() {
   const [images, setImages] = React.useState([]);
   const maxNumber = 69;
   const onChange = (imageList) => {
-    // data for submit
-    // console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
   let [flag, setFlag] = useState(true);
@@ -30,10 +30,17 @@ export default function AI() {
 
   const { Meta } = Card;
 
+  //post버튼 solution 연동
+  const navigate = useNavigate()
+
+  const gotoSolution = () => {
+    navigate("/post")
+  }
   return (
     <div className="AI-bg">
       {flag ? (
         <div className="App">
+            <img className="drfarmlogo" src={drfarmlogo} />
           <ImageUploading
             // multiple
             value={images}
@@ -62,7 +69,7 @@ export default function AI() {
 
                 {imageList.map((image, index) => (
                   <div key={index} className="image-item">
-                    <img src={image.data_url} alt="" width="100" height="70" />
+                    <img className="preimg" src={image.data_url} alt="" />
                     <div className="image-item__btn-wrapper">
                       <button
                         className="AI-button"
@@ -188,7 +195,7 @@ export default function AI() {
                 </span>
               </div>
               <img src={ad}></img>
-              <button
+              <button className="aibtn"
                 onClick={() => {
                   setFlag(true);
                   setdImage(null);
@@ -196,6 +203,7 @@ export default function AI() {
               >
                 back
               </button>
+              <button className="aibtn" onClick={gotoSolution}>Post</button>
             </div>
           )}
         </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import "../styles/style.scss"
 
-export default function Scrolltop() {
+export default function ScrollToTop() {
 
     const [ScrollY, setScrollY] = useState(0);
     const [BtnStatus, setBtnStatus] = useState(false); // 버튼 상태

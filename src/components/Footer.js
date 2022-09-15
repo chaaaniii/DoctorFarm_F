@@ -26,7 +26,7 @@ export default function Footer() {
                     </a>
                 </div>
                 <div className='footer-icon'>
-                    <Link to="/1">
+                    <Link to="/">
                         <img src={github} alt='github'></img>
                     </Link>
                 </div>

@@ -14,10 +14,10 @@
 .DS_img2{
     display: flex;
     justify-content: left;
-    margin-left: 5%;
+    margin-left: 7%;
     margin-top: 1%;
-    width: 300px;
-    height: 250px;
+    width: 400px;
+    height: 400px;
     border: 2px solid gray;
     padding: 5px;
     
@@ -40,9 +40,29 @@
 }
 
 .pv_input{
-    margin-top: 20px;
+    margin-top: 25px;
     display: flex;
-    margin-left: 5%;
+    margin-left: 7%;
+}
+
+.S_solution{
+    margin-left: 40%;
+    margin-right: 10%;
+    margin-top: -420px;
+    margin-bottom: 50px;
+    border: 2px solid gray;
+    height: 400px;
+    width: 50%;
+    padding: 2px;
+
+}
+
+.textarea{
+    resize: none;
+    border: 1px solid black;
+    height: 390px;
+    width: 100%;
+
 }
 
 @media only screen and (max-width : 1220px) {
@@ -61,7 +81,7 @@
     
     .DS_img2{
         display: flex;
-        justify-content: left;
+        justify-content : left;
         margin-left: 5%;
         margin-top: 1%;
         width: 300px;
@@ -91,15 +111,36 @@
         margin-left: 5%;
     }
 
+    .S_solution{
+        margin-left: 40%;
+        margin-right: 22%;
+        margin-top: -273px;
+        margin-bottom: 0px;
+        border: 2px solid gray;
+        height: 250px;
+        width: 50%;
+        padding: 2px;
+    
+    }
+    
+    .textarea{
+        resize: none;
+        border: 1px solid black;
+        height: 242px;
+        width: 100%;
+    
+    }
+
     
 }
 
 @media only screen and (max-width : 860px) {
     
     .DS_img1{
-        display: relative;
+        display: flex;
         justify-content : left;
-        margin-left: 10%;
+        margin-left: auto;
+        margin-right: auto;
         margin-top: 3%;
         width: 300px;
         height: 250px;
@@ -110,8 +151,9 @@
     
     .DS_img2{
         display: flex;
-        justify-content: left;
-        margin-left: 5%;
+        justify-content : left;
+        margin-left: auto;
+        margin-right: auto;
         margin-top: 1%;
         width: 300px;
         height: 250px;
@@ -121,7 +163,8 @@
     }
 
     .D_solution{
-        margin-left: 10%;
+        margin-left: auto;
+        margin-right: auto;
         margin-top: 10px;
         margin-bottom: 0px;
         border: 2px solid gray;
@@ -137,7 +180,26 @@
     .pv_input{
         margin-top: 20px;
         display: flex;
-        margin-left: 5%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .S_solution{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -12px;
+        margin-bottom: 0px;
+        border: 2px solid gray;
+        height: 100px;
+        width: 300px;
+    }
+
+    .textarea{
+        resize: none;
+        border: 1px solid black;
+        height: 92px;
+        width: 100%;
+    
     }
 
     

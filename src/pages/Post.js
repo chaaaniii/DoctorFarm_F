@@ -1,35 +1,31 @@
 import React, { useState, useEffect } from "react";
-// import AuthContext from '../context/AuthContext'
 import axios from "axios";
 import "./Post.css";
-import defaultimg from "../components/img/default.png"
+import defaultimg from "../components/img/default.png";
+
+//에디터
+// import { Editor } from '@toast-ui/react-editor';
+// import '@toast-ui/editor/dist/toastui-editor.css';
 
 export default function Post() {
-  // let {registerUser} = useContext(AuthContext)
   const [detected_image, setDetected_image] = useState(null);
   const [detected_default_solution, setDetected_default_solution] = useState(null);
-  // const [detected_contents, setDetected_contents] = useState(null)
   const [solution_image, setSolution_image] = useState(null);
-  // const [solution_contents, setSolution_contents] = useState(null)
-  // const [is_public, setIs_public] = useState(false)
+  const [preview_image, setPreview_image] = useState(null);
 
-  const saveSolutionImage = (e) =>{
-    setSolution_image(URL.createObjectURL(e.target.files[0]));
+  const saveSolutionImage = (e) => {
+    setPreview_image(URL.createObjectURL(e.target.files[0]));
+    setSolution_image(e.target.files[0])
   }
 
   const [post, setPost] = useState({
-    // detected_image: null,
     detected_contents: "",
-    // solution_image: null,
     solution_contents: "",
     is_public: false,
   });
 
   const {
-    // detected_image,
-    // detected_default_solution,
     detected_contents,
-    // solution_image,
     solution_contents,
     is_public,
   } = post;
@@ -41,14 +37,6 @@ export default function Post() {
       [name]: value,
     });
   };
-
-  // const onChangeSolutionImage = (e) => {
-  //   console.log(solution_image)
-  //   console.log(e.target.files[0])
-
-  //   setSolution_image(e.target.files[0])
-  //   console.log(solution_image)
-  // }
 
 
   const onClickTempHandler = () => {
@@ -62,7 +50,7 @@ export default function Post() {
       formdata.append('solution_contents', post.solution_contents);
       formdata.append('is_public', post.is_public);
       console.log(detected_image)
-      console.log(typeof(detected_image))
+      console.log(typeof (detected_image))
       axios.post("http://localhost:8000/post/solutions/", formdata, {
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -72,6 +60,7 @@ export default function Post() {
     } catch (e) {
       console.error(e.message);
     }
+
   }
 
 
@@ -97,43 +86,81 @@ export default function Post() {
     }
     fetchData();
   }, []);
-  
-  
+
+  // //에디터
+  // // Editor DOM 선택용
+  // const editorRef = useRef();
+
+  // // 등록 버튼 핸들러
+  // const handleRegisterButton = () => {
+  //   // 입력창에 입력한 내용을 HTML 태그 형태로 취득
+  //   console.log(editorRef.current?.getInstance().getHTML());
+  //   // 입력창에 입력한 내용을 MarkDown 형태로 취득
+  //   console.log(editorRef.current?.getInstance().getMarkdown());
+  // };
+
+
+
   return (
     <>
-    <div className="D_body">
-      <img className="DS_img1"  src={detected_image} width="300" height="200" />
-      <span className="D_solution">
-      <p>{detected_default_solution}</p>
-      <input
-        name="detected_contents"
-        placeholder="detected_contents"
-        onChange={onChange}
-        value={detected_contents}
-      />
-      </span>
-      <br/>
-      <p/>
+      <div className="D_body">
+        <img className="DS_img1" src={detected_image} width="300" height="200" />
+        <span className="D_solution">
+          <p>{detected_default_solution}</p>
+          <input
+            name="detected_contents"
+            placeholder="detected_contents"
+            onChange={onChange}
+            value={detected_contents}
+          />
+        </span>
+        <br />
+        <p />
       </div>
       <div>
-      {/* <input type='file' accept='img/*' onChange={(e)=>setSolution_image(e.target.files[0])}></input> */}
-      <input className="pv_input" type='file' accept='img/*' onChange={saveSolutionImage}></input>
-      <div>
-        {solution_image ? <img className="DS_img2" src={solution_image} alt="" width="300" heigh="200"/>:<img className="DS_img2" src={defaultimg}/>}
+        {/* <input type='file' accept='img/*' onChange={(e)=>setSolution_image(e.target.files[0])}></input> */}
+        <input className="pv_input" type='file' accept='img/*' onChange={saveSolutionImage}></input>
+        <div>
+          {solution_image ? <img className="DS_img2" src={preview_image} alt="" width="300" heigh="200" /> : <img className="DS_img2" src={defaultimg} />}
+        </div>
+        <br />
+        <span className="S_solution">
+        <textarea
+          className="textarea"
+          name="solution_contents"
+          placeholder="solution_contents"
+          onChange={onChange}
+          value={solution_contents}
+        />
+        </span>
+        <br />
+        <p></p>
+        <button onClick={onClickTempHandler}>SAVE Temporarily</button>
+        <button onClick={() => { }}>Public POST</button>
       </div>
-      <br />
-      <input
-        name="solution_contents"
-        placeholder="solution_contents"
-        onChange={onChange}
-        value={solution_contents}
-      />
-      <br />
-      <p></p>
-      <button onClick={onClickTempHandler}>SAVE Temporarily</button>
-      <button onClick={() => {}}>Public POST</button>
- 
-    </div>
+      {/* <div>
+        <h3>### Editor Toast</h3>
+        <Editor
+          className="editor"
+          ref={editorRef} // DOM 선택용 useRef
+          previewStyle="vertical" // 미리보기 스타일 지정
+          height="300px" // 에디터 창 높이
+          width="400px"
+          initialEditType="wysiwyg" //
+          toolbarItems={[
+            // 툴바 옵션 설정
+            ['heading', 'bold', 'italic', 'strike'],
+            ['hr', 'quote'],
+            ['ul', 'ol', 'task', 'indent', 'outdent'],
+            ['table', 'image', 'link'],
+            ['code', 'codeblock']
+          ]}
+          useCommandShortcut={false} // 키보드 입력 컨트롤 방지
+        ></Editor>
+
+        <button onClick={handleRegisterButton}>등록</button>
+
+      </div> */}
     </>
   );
 };

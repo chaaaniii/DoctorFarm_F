@@ -129,7 +129,7 @@ const Navbar = () => {
         <div>
         <header className={classes.header} >
             <div className={ScrollActive? classes.header__content : classes.header__scroll }>
-                <Link to="/1" className={classes.header__content__logo}>
+                <Link to="/" className={classes.header__content__logo}>
                     <img className={classes.header__content__logo} src={mainlogo}/>
                 </Link>
                 <nav
@@ -145,12 +145,12 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/dmd" onClick={menuToggleHandler}>
+                            <Link to="/post" onClick={menuToggleHandler}>
                                 솔루션
                             </Link>
                         </li>
                         <li>
-                            <Link to="/RestauR" onClick={menuToggleHandler}>
+                            <Link to="/solutions" onClick={menuToggleHandler}>
                                 게시판
                             </Link>
                         </li>

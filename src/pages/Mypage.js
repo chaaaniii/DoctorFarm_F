@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Mypage = () => {
   const [user, setUser] = useState(null);
   const [userId, setUserId] = useState(null);
@@ -63,6 +64,13 @@ const Mypage = () => {
     fetchData2();
   }, []);
 
+  const navigate = useNavigate()
+
+  const updateHandler=(id)=> {
+    console.log(id)
+    navigate("/Postupdate",{state:id})
+  }
+
   return (
     <>
       <h1>My Page</h1>
@@ -78,7 +86,7 @@ const Mypage = () => {
         <h1>My Solution lists</h1>
         {solutionList.filter(data => data.id !== null).map((data)=>{
                 return (
-                    <div className='list' key={data.id}>
+                    <div className='list' key={data.id} onClick={()=>updateHandler(data.id)}>
                         <img src={data.detected_image} width='300' height='200'/>
                         <img src={data.solution_image} width='300' height='200'/>
                         <hr/>
