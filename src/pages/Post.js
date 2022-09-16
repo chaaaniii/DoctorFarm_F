@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Post.css";
 import defaultimg from "../components/img/default.png";
+import { useNavigate } from "react-router-dom";
 
 //에디터
 // import { Editor } from '@toast-ui/react-editor';
 // import '@toast-ui/editor/dist/toastui-editor.css';
+
 
 export default function Post() {
   const [detected_image, setDetected_image] = useState(null);
@@ -13,10 +15,12 @@ export default function Post() {
   const [solution_image, setSolution_image] = useState(null);
   const [preview_image, setPreview_image] = useState(null);
 
+
   const saveSolutionImage = (e) => {
     setPreview_image(URL.createObjectURL(e.target.files[0]));
     setSolution_image(e.target.files[0])
   }
+
 
   const [post, setPost] = useState({
     detected_contents: "",
@@ -38,6 +42,7 @@ export default function Post() {
     });
   };
 
+  const navigate = useNavigate();
 
   const onClickTempHandler = () => {
     try {
@@ -60,7 +65,7 @@ export default function Post() {
     } catch (e) {
       console.error(e.message);
     }
-
+    navigate("/mypage")
   }
 
 
@@ -125,19 +130,21 @@ export default function Post() {
         </div>
         <br />
         <span className="S_solution">
-        <textarea
-          className="textarea"
-          name="solution_contents"
-          placeholder="solution_contents"
-          onChange={onChange}
-          value={solution_contents}
-        />
+          <textarea
+            className="textarea"
+            name="solution_contents"
+            placeholder="solution_contents"
+            onChange={onChange}
+            value={solution_contents}
+          />
         </span>
         <br />
         <p></p>
         <button onClick={onClickTempHandler}>SAVE Temporarily</button>
         <button onClick={() => { }}>Public POST</button>
       </div>
+
+
       {/* <div>
         <h3>### Editor Toast</h3>
         <Editor

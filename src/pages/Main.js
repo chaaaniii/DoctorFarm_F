@@ -7,6 +7,7 @@ import "antd/dist/antd.min.css";
 import './Main.scss'
 import AOS from "aos";
 import "aos/dist/aos.css";
+import video from "../components/img/farm.mp4"
 //스코롤 모션
 // import { Animator, ScrollContainer, ScrollPage, batch, FadeIn } from "react-scroll-motion";
 
@@ -43,15 +44,18 @@ export default function Main() {
   // const { Meta } = Card;
 
   return (
-    <div className='Body'>
-      <div className='Mainhead'>
+    <div className='Main-Body'>
+      <span className='Mainhead'>
         <h1 ><b className="AI">Detect Disease with A.I</b></h1>
         <h3><span className="AI"> Use AI to detect plant diseases and get the appropriate solution.<br />
           Learn how other users solved similar diseases and their know-how.<br />
           Lets all share our knowledge for healthy crops!!
         </span></h3>
         <button className='gotoAI' onClick={gotoAI}>AI</button>
-      </div>
+        <video className='bg-video' autoPlay loop>
+          <source src={video} type="video/mp4" />
+        </video>
+      </span>
 
 
 

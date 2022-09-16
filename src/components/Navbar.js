@@ -61,8 +61,11 @@ const Icon = styled.span`
 
 const Navbar = () => {
     let {user, logoutUser} = useContext(AuthContext)
+    
     const navigate = useNavigate();
+    
     const [menuOpen, setMenuOpen] = useState(false);
+    
     const [size, setSize] = useState({
         width: undefined,
         height: undefined,

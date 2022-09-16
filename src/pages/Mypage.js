@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./Mypage.css"
+import Pagination from "../components/pagination";
+
 const Mypage = () => {
   const [user, setUser] = useState(null);
   const [userId, setUserId] = useState(null);
+  const [page,setPage] = useState(1);
+  const [limit,setLimit] = useState(11);
+  const offset = (page-1)* limit;
   const [solutionList, setSolutionList] = useState([
     {
       id: null,
@@ -17,7 +23,6 @@ const Mypage = () => {
       created_at: null,
     },
   ]);
-
   useEffect(() => {
     async function fetchData() {
       try {
@@ -64,36 +69,46 @@ const Mypage = () => {
     fetchData2();
   }, []);
 
+
   const navigate = useNavigate()
 
-  const updateHandler=(id)=> {
+  const updateHandler = (id) => {
     console.log(id)
-    navigate("/Postupdate",{state:id})
+    navigate("/Postupdate", { state: id })
   }
+
 
   return (
     <>
-      <h1>My Page</h1>
       <div>
         <ul>
           <li>User Email : {user}</li>
           <li>User pk : {userId}</li>
-          <li>User Point : {}</li>
+          <li>User Point : { }</li>
           <li></li>
         </ul>
       </div>
       <div className="mySolutions">
         <h1>My Solution lists</h1>
-        {solutionList.filter(data => data.id !== null).map((data)=>{
-                return (
-                    <div className='list' key={data.id} onClick={()=>updateHandler(data.id)}>
-                        <img src={data.detected_image} width='300' height='200'/>
-                        <img src={data.solution_image} width='300' height='200'/>
-                        <hr/>
-                    </div>
-                );
-            })}
+        {solutionList.slice(offset,offset+limit).filter(data => data.id !== null).map((data) => {
+          return (
+            <div className='list' key={data.id} onClick={() => updateHandler(data.id)}>
+              <div>{}</div>
+              <img src={data.detected_image} width='300' height='200' />
+              <img src={data.solution_image} width='300' height='200' />
+              <hr />
+            </div>
+          );
+        })}
       </div>
+      <Pagination
+        total={solutionList.length}
+        limit={limit}
+        page={page}
+        setPage={setPage}
+
+        
+        />
     </>
   );
 };

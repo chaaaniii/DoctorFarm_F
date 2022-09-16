@@ -111,12 +111,15 @@ const PostUpdate = () => {
         {solution_image ? <img className="DS_img2" src={preview_image} alt="" width="300" heigh="200"/>:<img className="DS_img2" src={defaultimg}/>}
       </div>
       <br />
-      <input
-        name="solution_contents"
-        placeholder="solution_contents"
-        onChange={onChange}
-        value={solution_contents}
-      />
+      <span className="S_solution">
+        <textarea
+          className="textarea"
+          name="solution_contents"
+          placeholder="solution_contents"
+          onChange={onChange}
+          value={solution_contents}
+        />
+        </span>
       <br />
       <p></p>
       <button onClick={onClickTempHandler}>SAVE Temporarily</button>
