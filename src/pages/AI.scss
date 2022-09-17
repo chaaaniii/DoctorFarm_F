@@ -9,14 +9,29 @@
 //   background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url(../components/img/doctor-bg.jpeg) center;
 // }
 .image-item {
-  display: flex;
+  display: inline;
   margin: 10px 0;
   justify-content: center;
 }
 
+.drop-area {
+  background-color: rgba($color: #6775c7, $alpha: 0.2);
+  border-radius: 10%;
+  border: 3px dashed #0051ff;
+  width: 500px;
+  height: 300px;
+  margin-top: 200px;
+  color: black;
+}
+
 .preimg {
-  width: 100px;
-  height: 70px;
+  width: 500px;
+  height: 300px;
+  margin-top: 200px;
+  // border: 2px solid #0051ff;
+  border-radius: 10%;
+  padding: 2px;
+  
 }
 
 .image-item__btn-wrapper {
@@ -44,9 +59,11 @@
   border: none;
   color: white;
   padding: 12px 32px;
-  display: flex;
+  display: inline;
   justify-content: center;
   font-size: 16px;
+  margin-top: 20px;
+  
 
   &:hover {
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
@@ -61,15 +78,7 @@
   }
 }
 
-.drop-area {
-  background-color: rgba($color: #6775c7, $alpha: 0.2);
-  border-radius: 10%;
-  border: 3px dashed #0051ff;
-  height: 220px;
-  width: 400px;
-  margin-top: 180px;
-  color: black;
-}
+
 
 
 
@@ -143,6 +152,18 @@
   display: flex;
   border: 2px solid gray;
   padding: 4px;
+}
+
+.dstitle{
+  margin-top: 5%;
+  margin-bottom: -2%;
+  margin-left: 5%;
+  display: flex;
+  font-size: 25px;
+  width: 120px;
+  border-bottom: 7px solid  ;
+  border-image: linear-gradient(90deg, rgba(177,201,252,1) 0%, rgba(42,86,182,1) 51%, rgba(0,23,71,1) 100%);
+  border-image-slice: 1;
 }
 
 .Card1 {

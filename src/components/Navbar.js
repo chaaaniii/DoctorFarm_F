@@ -144,7 +144,7 @@ const Navbar = () => {
                     <ul>
                         <li>
                             <Link to="/AI" onClick={menuToggleHandler}>
-                                AI
+                                진단
                             </Link>
                         </li>
                         <li>
@@ -159,7 +159,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link to="/mypage" onClick={menuToggleHandler}>
-                                회원정보
+                                마이페이지
                             </Link>
                         </li>
                     </ul>

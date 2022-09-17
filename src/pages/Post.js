@@ -65,7 +65,7 @@ export default function Post() {
     } catch (e) {
       console.error(e.message);
     }
-    navigate("/mypage")
+    navigate("/ai")
   }
 
 
@@ -140,8 +140,8 @@ export default function Post() {
         </span>
         <br />
         <p></p>
-        <button onClick={onClickTempHandler}>SAVE Temporarily</button>
-        <button onClick={() => { }}>Public POST</button>
+        <button onClick={onClickTempHandler}>돌아가기</button>
+        {/* <button onClick={() => { }}>Public POST</button> */}
       </div>
     </>
   );

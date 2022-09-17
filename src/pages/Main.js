@@ -49,12 +49,12 @@ export default function Main() {
         <source src={video} type="video/mp4" />
       </video>
       <span className='Mainhead'>
-        <h1 ><b className="AI">Detect Disease with A.I</b></h1>
+        <h1 ><b className="AI">A.i로 농작물의 병해를 진단해 보세요.</b></h1>
         <h3><span className="AI"> Use AI to detect plant diseases and get the appropriate solution.<br />
           Learn how other users solved similar diseases and their know-how.<br />
           Lets all share our knowledge for healthy crops!!
         </span></h3>
-        <button className='gotoAI' onClick={gotoAI}>AI</button>
+        <button className='gotoAI' onClick={gotoAI}>진단하기</button>
 
       </span>
 

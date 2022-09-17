@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom"
 
 export default function AI() {
   const [images, setImages] = React.useState([]);
-  const maxNumber = 69;
   const onChange = (imageList) => {
     setImages(imageList);
   };
@@ -42,12 +41,9 @@ export default function AI() {
         <div className="App">
             <img className="drfarmlogo" src={drfarmlogo} />
           <ImageUploading
-            // multiple
             value={images}
             onChange={onChange}
-            maxNumber={maxNumber}
             dataURLKey="data_url"
-            acceptType={["jpg", "jfif", "png"]}
           >
             {({
               imageList,
@@ -58,6 +54,7 @@ export default function AI() {
             }) => (
               // write your building UI
               <div className="upload__image-wrapper">
+                {imageList.length <=0 &&(
                 <button
                   className="drop-area"
                   style={isDragging ? { color: "red" } : null}
@@ -65,7 +62,7 @@ export default function AI() {
                   {...dragProps}
                 >
                   이곳에 이미지를 넣어주세요.
-                </button>
+                </button> )}
 
                 {imageList.map((image, index) => (
                   <div key={index} className="image-item">
@@ -164,12 +161,14 @@ export default function AI() {
             <Loading />
           ) : (
             <div>
+              <p className="dstitle">진단결과</p>
               <img className="dimg" src={dImage} width="600" height="400"></img>
+              <p className="dstitle">유사증상</p>
               <div data-aos="fade-up-left" className="Card1">
                 <span className="Card1__Card2">
                   <Card
                     hoverable
-                    style={{ width: 250 }}
+                    style={{ width: 300 }}
                     cover={<img src={pepper} />}
                   >
                     <Meta title="AI 진단" description="www.ai진단.com" />
@@ -178,7 +177,7 @@ export default function AI() {
                 <span className="Card1__Card2">
                   <Card
                     hoverable
-                    style={{ width: 250 }}
+                    style={{ width: 300 }}
                     cover={<img src={pepper} />}
                   >
                     <Meta title="AI 진단" description="www.ai진단.com" />
@@ -187,14 +186,43 @@ export default function AI() {
                 <span className="Card1__Card2">
                   <Card
                     hoverable
-                    style={{ width: 250 }}
+                    style={{ width: 300 }}
                     cover={<img src={pepper} />}
                   >
                     <Meta title="AI 진단" description="www.ai진단.com" />
                   </Card>
                 </span>
               </div>
-              <img className="ad"src={ad}></img>
+              <p className="dstitle">농약추천</p>
+              <div data-aos="fade-up-right" className="Card1">
+                <span className="Card1__Card2">
+                  <Card
+                    hoverable
+                    style={{ width: 300 }}
+                    cover={<img src={pepper} />}
+                  >
+                    <Meta title="AI 진단" description="www.ai진단.com" />
+                  </Card>
+                </span>
+                <span className="Card1__Card2">
+                  <Card
+                    hoverable
+                    style={{ width: 300 }}
+                    cover={<img src={pepper} />}
+                  >
+                    <Meta title="AI 진단" description="www.ai진단.com" />
+                  </Card>
+                </span>
+                <span className="Card1__Card2">
+                  <Card
+                    hoverable
+                    style={{ width: 300 }}
+                    cover={<img src={pepper} />}
+                  >
+                    <Meta title="AI 진단" description="www.ai진단.com" />
+                  </Card>
+                </span>
+              </div>
               <button className="aibtn"
                 onClick={() => {
                   setFlag(true);
