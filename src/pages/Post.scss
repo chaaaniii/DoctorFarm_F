@@ -1,5 +1,6 @@
+@import "./../styles/variables.scss";
 
-.DS_img1{
+.DS_img1 {
     display: flex;
     justify-content: left;
     margin-left: 7%;
@@ -8,10 +9,10 @@
     height: 400px;
     border: 2px solid gray;
     padding: 5px;
-    
+
 }
 
-.DS_img2{
+.DS_img2 {
     display: flex;
     justify-content: left;
     margin-left: 7%;
@@ -20,10 +21,10 @@
     height: 400px;
     border: 2px solid gray;
     padding: 5px;
-    
+
 }
 
-.D_solution{
+.D_solution {
     margin-left: 40%;
     margin-right: 10%;
     margin-top: -400px;
@@ -34,18 +35,18 @@
 
 }
 
-.D_body{
+.D_body {
     border-bottom: 1px solid gray;
     padding-top: 50px;
 }
 
-.pv_input{
+.pv_input {
     margin-top: 25px;
     display: flex;
     margin-left: 7%;
 }
 
-.S_solution{
+.S_solution {
     margin-left: 40%;
     margin-right: 10%;
     margin-top: -420px;
@@ -57,7 +58,7 @@
 
 }
 
-.textarea{
+.textarea {
     resize: none;
     border: 1px solid black;
     height: 390px;
@@ -65,33 +66,47 @@
 
 }
 
+button {
+    cursor: pointer;
+    outline: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: $borderRadius;
+    font-size: 1rem;
+    font-family: inherit;
+    background: $primary;
+    color: $light;
+    border: 1px solid transparent;
+    transition: 0.3s ease all;
+    margin: 20px 20px;
+}
+
 @media only screen and (max-width : 1220px) {
-    
-    .DS_img1{
+
+    .DS_img1 {
         display: flex;
-        justify-content : left;
+        justify-content: left;
         margin-left: 5%;
         margin-top: 3%;
         width: 300px;
         height: 250px;
         border: 2px solid gray;
         padding: 5px;
-        
+
     }
-    
-    .DS_img2{
+
+    .DS_img2 {
         display: flex;
-        justify-content : left;
+        justify-content: left;
         margin-left: 5%;
         margin-top: 1%;
         width: 300px;
         height: 250px;
         border: 2px solid gray;
         padding: 5px;
-        
+
     }
 
-    .D_solution{
+    .D_solution {
         margin-left: 40%;
         margin-right: 22%;
         margin-top: -250px;
@@ -99,19 +114,19 @@
         border: 2px solid gray;
         height: 250px;
     }
-    
-    .D_body{
+
+    .D_body {
         border-bottom: 1px solid gray;
         padding-top: 50px;
     }
-    
-    .pv_input{
+
+    .pv_input {
         margin-top: 20px;
         display: flex;
         margin-left: 5%;
     }
 
-    .S_solution{
+    .S_solution {
         margin-left: 40%;
         margin-right: 22%;
         margin-top: -273px;
@@ -120,25 +135,25 @@
         height: 250px;
         width: 50%;
         padding: 2px;
-    
+
     }
-    
-    .textarea{
+
+    .textarea {
         resize: none;
         border: 1px solid black;
         height: 242px;
         width: 100%;
-    
+
     }
 
-    
+
 }
 
 @media only screen and (max-width : 860px) {
-    
-    .DS_img1{
+
+    .DS_img1 {
         display: flex;
-        justify-content : left;
+        justify-content: left;
         margin-left: auto;
         margin-right: auto;
         margin-top: 3%;
@@ -146,12 +161,12 @@
         height: 250px;
         border: 2px solid gray;
         padding: 5px;
-        
+
     }
-    
-    .DS_img2{
+
+    .DS_img2 {
         display: flex;
-        justify-content : left;
+        justify-content: left;
         margin-left: auto;
         margin-right: auto;
         margin-top: 1%;
@@ -159,10 +174,10 @@
         height: 250px;
         border: 2px solid gray;
         padding: 5px;
-        
+
     }
 
-    .D_solution{
+    .D_solution {
         margin-left: auto;
         margin-right: auto;
         margin-top: 10px;
@@ -171,20 +186,20 @@
         height: 100px;
         width: 300px;
     }
-    
-    .D_body{
+
+    .D_body {
         border-bottom: 1px solid gray;
         padding-top: 50px;
     }
-    
-    .pv_input{
+
+    .pv_input {
         margin-top: 20px;
         display: flex;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .S_solution{
+    .S_solution {
         margin-left: auto;
         margin-right: auto;
         margin-top: -12px;
@@ -194,13 +209,13 @@
         width: 300px;
     }
 
-    .textarea{
+    .textarea {
         resize: none;
         border: 1px solid black;
         height: 92px;
         width: 100%;
-    
+
     }
 
-    
+
 }

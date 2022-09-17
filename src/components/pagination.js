@@ -5,26 +5,38 @@ export default function Pagination({ total, limit, page, setPage }) {
   const goToTop =()=>{
     window.scrollTo(0,0);
   }
+  const onClickHandlerPre = () => {
+    setPage(page -1)
+    goToTop()
+  }
+  const onClickHandler = (i) => {
+    setPage(i +1)
+    goToTop()
+  }
+  const onClickHandlerAft = () => {
+    setPage(page + 1)
+    goToTop()
+  }
 
   return (
     <>
       <Nav>
-        <Button onClick={() => setPage(page - 1)} disabled={page === 1}>
-          <div onClick={goToTop}>&lt;</div>
+        <Button onClick={onClickHandlerPre} disabled={page === 1}>
+          <div>&lt;</div>
         </Button>
         {Array(numPages)
           .fill()
           .map((_, i) => (
             <Button
               key={i + 1}
-              onClick={() => setPage(i + 1) }
+              onClick={() => {onClickHandler(i)} }
               aria-current={page === i + 1 ? "page" : null}
             >
-              <div onClick={goToTop}>{i + 1}</div>
+              <div>{i + 1}</div>
             </Button>
           ))}
-        <Button onClick={() => setPage(page + 1)} disabled={page === numPages}>
-        <div onClick={goToTop}>&gt;</div>
+        <Button onClick={onClickHandlerAft} disabled={page === numPages}>
+        <div>&gt;</div>
         </Button>
       </Nav>
     </>

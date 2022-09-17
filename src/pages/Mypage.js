@@ -7,9 +7,9 @@ import Pagination from "../components/pagination";
 const Mypage = () => {
   const [user, setUser] = useState(null);
   const [userId, setUserId] = useState(null);
-  const [page,setPage] = useState(1);
-  const [limit,setLimit] = useState(11);
-  const offset = (page-1)* limit;
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(11);
+  const offset = (page - 1) * limit;
   const [solutionList, setSolutionList] = useState([
     {
       id: null,
@@ -80,7 +80,7 @@ const Mypage = () => {
 
   return (
     <>
-      <div>
+      <div className="User_imform">
         <ul>
           <li>User Email : {user}</li>
           <li>User pk : {userId}</li>
@@ -90,10 +90,10 @@ const Mypage = () => {
       </div>
       <div className="mySolutions">
         <h1>My Solution lists</h1>
-        {solutionList.slice(offset,offset+limit).filter(data => data.id !== null).map((data) => {
+        {solutionList.slice(offset, offset + limit).filter(data => data.id !== null).map((data) => {
           return (
             <div className='list' key={data.id} onClick={() => updateHandler(data.id)}>
-              <div>{}</div>
+              <div>{ }</div>
               <img src={data.detected_image} width='300' height='200' />
               <img src={data.solution_image} width='300' height='200' />
               <hr />
@@ -107,8 +107,8 @@ const Mypage = () => {
         page={page}
         setPage={setPage}
 
-        
-        />
+
+      />
     </>
   );
 };

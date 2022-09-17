@@ -30,7 +30,6 @@ export const AuthProvider = ({children}) => {
             setCookie('refresh', data.refresh_token)
             setUser(data.user.email);
             console.log(data.user.email)
-            // document.location.href = '/1'
             navigate("/");
         })
         .catch(error => {

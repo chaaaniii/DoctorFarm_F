@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Post.css";
+import "./Post.scss";
 import defaultimg from "../components/img/default.png";
 import { useNavigate } from "react-router-dom";
 
@@ -143,31 +143,6 @@ export default function Post() {
         <button onClick={onClickTempHandler}>SAVE Temporarily</button>
         <button onClick={() => { }}>Public POST</button>
       </div>
-
-
-      {/* <div>
-        <h3>### Editor Toast</h3>
-        <Editor
-          className="editor"
-          ref={editorRef} // DOM 선택용 useRef
-          previewStyle="vertical" // 미리보기 스타일 지정
-          height="300px" // 에디터 창 높이
-          width="400px"
-          initialEditType="wysiwyg" //
-          toolbarItems={[
-            // 툴바 옵션 설정
-            ['heading', 'bold', 'italic', 'strike'],
-            ['hr', 'quote'],
-            ['ul', 'ol', 'task', 'indent', 'outdent'],
-            ['table', 'image', 'link'],
-            ['code', 'codeblock']
-          ]}
-          useCommandShortcut={false} // 키보드 입력 컨트롤 방지
-        ></Editor>
-
-        <button onClick={handleRegisterButton}>등록</button>
-
-      </div> */}
     </>
   );
 };

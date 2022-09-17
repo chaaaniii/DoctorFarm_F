@@ -169,7 +169,7 @@ export default function AI() {
                 <span className="Card1__Card2">
                   <Card
                     hoverable
-                    style={{ width: 300 }}
+                    style={{ width: 250 }}
                     cover={<img src={pepper} />}
                   >
                     <Meta title="AI 진단" description="www.ai진단.com" />
@@ -178,7 +178,7 @@ export default function AI() {
                 <span className="Card1__Card2">
                   <Card
                     hoverable
-                    style={{ width: 300 }}
+                    style={{ width: 250 }}
                     cover={<img src={pepper} />}
                   >
                     <Meta title="AI 진단" description="www.ai진단.com" />
@@ -187,14 +187,14 @@ export default function AI() {
                 <span className="Card1__Card2">
                   <Card
                     hoverable
-                    style={{ width: 300 }}
+                    style={{ width: 250 }}
                     cover={<img src={pepper} />}
                   >
                     <Meta title="AI 진단" description="www.ai진단.com" />
                   </Card>
                 </span>
               </div>
-              <img src={ad}></img>
+              <img className="ad"src={ad}></img>
               <button className="aibtn"
                 onClick={() => {
                   setFlag(true);

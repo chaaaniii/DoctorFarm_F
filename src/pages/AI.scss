@@ -68,6 +68,7 @@
   height: 220px;
   width: 400px;
   margin-top: 180px;
+  color: black;
 }
 
 
@@ -137,8 +138,8 @@
 }
 
 .dimg {
-  margin-top: 5%;
-  margin-left: 3%;
+  margin-top: 3%;
+  margin-left: 5%;
   display: flex;
   border: 2px solid gray;
   padding: 4px;
@@ -146,10 +147,20 @@
 
 .Card1 {
   display: flex;
-  margin: 3% 3%;
+  margin: 2% 5%;
 
   &__Card2 {
     margin: 3% auto;
   }
 }
 
+.ad{
+  width: 100%;
+  padding: 3%;
+  height: 250px;
+}
+
+.aibtn{
+  margin: 15px 20px;
+  margin-top: -25px;
+}

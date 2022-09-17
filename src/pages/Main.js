@@ -45,6 +45,9 @@ export default function Main() {
 
   return (
     <div className='Main-Body'>
+      <video className='bg-video' autoPlay loop>
+        <source src={video} type="video/mp4" />
+      </video>
       <span className='Mainhead'>
         <h1 ><b className="AI">Detect Disease with A.I</b></h1>
         <h3><span className="AI"> Use AI to detect plant diseases and get the appropriate solution.<br />
@@ -52,9 +55,7 @@ export default function Main() {
           Lets all share our knowledge for healthy crops!!
         </span></h3>
         <button className='gotoAI' onClick={gotoAI}>AI</button>
-        <video className='bg-video' autoPlay loop>
-          <source src={video} type="video/mp4" />
-        </video>
+
       </span>
 
 
