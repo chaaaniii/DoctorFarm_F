@@ -49,10 +49,11 @@ export default function Main() {
         <source src={video} type="video/mp4" />
       </video>
       <span className='Mainhead'>
-        <h1 ><b className="AI">A.i로 농작물의 병해를 진단해 보세요.</b></h1>
-        <h3><span className="AI"> Use AI to detect plant diseases and get the appropriate solution.<br />
-          Learn how other users solved similar diseases and their know-how.<br />
-          Lets all share our knowledge for healthy crops!!
+        <h1 ><b className="AI">A.I로 농작물의 병해를 진단해 보세요.</b></h1>
+        <h3><span className="AI">AI를 이용하여 농작물의 질병을 감지하고 해결책을 받아보세요.<br/>
+        다른 유저들과 함께 비슷한 질병에 대해서 이야기를 나눠보고 자신의 노하우를 공유하세요.<br/>
+        모두 건강한 농작물을 키워봅시다. 
+       
         </span></h3>
         <button className='gotoAI' onClick={gotoAI}>진단하기</button>
 

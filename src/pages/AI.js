@@ -20,6 +20,7 @@ export default function AI() {
   let [flag, setFlag] = useState(true);
   let { user } = useContext(AuthContext);
   let [dImage, setdImage] = useState(null);
+  let [class_id,setClass_id] = useState(null);
   let failed = false;
 
   const firmUser = localStorage.getItem("user");
@@ -39,7 +40,14 @@ export default function AI() {
     <div className="AI-bg">
       {flag ? (
         <div className="App">
-            <img className="drfarmlogo" src={drfarmlogo} />
+          <div className="AI-title">
+            <p><b>진단하기</b></p>
+          </div>
+          <div className="AI-contents">
+            <p>병든 농작물의 사진을 업로드하여</p>
+            <p>병해를 진단받고 솔루션을 받아보세요.</p>
+          </div>
+          <img className="drfarmlogo" src={drfarmlogo} />
           <ImageUploading
             value={images}
             onChange={onChange}
@@ -54,15 +62,15 @@ export default function AI() {
             }) => (
               // write your building UI
               <div className="upload__image-wrapper">
-                {imageList.length <=0 &&(
-                <button
-                  className="drop-area"
-                  style={isDragging ? { color: "red" } : null}
-                  onClick={onImageUpload}
-                  {...dragProps}
-                >
-                  이곳에 이미지를 넣어주세요.
-                </button> )}
+                {imageList.length <= 0 && (
+                  <button
+                    className="drop-area"
+                    style={isDragging ? { color: "red" } : null}
+                    onClick={onImageUpload}
+                    {...dragProps}
+                  >
+                    이곳에 이미지를 넣어주세요.
+                  </button>)}
 
                 {imageList.map((image, index) => (
                   <div key={index} className="image-item">
@@ -130,6 +138,9 @@ export default function AI() {
                                       .then(function (response) {
                                         setdImage(response.data[0].image);
                                         setloading(false);
+                                        setClass_id(response.data[0].class_id);
+                                        console.log(response.data[0].class_id);
+                                        
                                       })
                                       .catch(function (error) {
                                         console.log(error);
@@ -162,7 +173,10 @@ export default function AI() {
           ) : (
             <div>
               <p className="dstitle">진단결과</p>
-              <img className="dimg" src={dImage} width="600" height="400"></img>
+              <div className="dsBg">
+                <img className="dimg" src={dImage} width="35%" height="400"></img>
+                <p className="dd-solution" >{class_id}</p>
+              </div>
               <p className="dstitle">유사증상</p>
               <div data-aos="fade-up-left" className="Card1">
                 <span className="Card1__Card2">
@@ -198,10 +212,10 @@ export default function AI() {
                 <span className="Card1__Card2">
                   <Card
                     hoverable
-                    style={{ width: 300 }}
-                    cover={<img src={pepper} />}
+                    style={{ width: 300 , height:500}}
+            
                   >
-                    <Meta title="AI 진단" description="www.ai진단.com" />
+                    <Meta title="AI 진단" description="www.ai진단.comwww.ai진단.comwww.ai진단.comwww.ai진단.comwww.ai진단.comwww.ai진단.comwww.ai진단.comwww.ai진단.comwww.ai진단.com" />
                   </Card>
                 </span>
                 <span className="Card1__Card2">

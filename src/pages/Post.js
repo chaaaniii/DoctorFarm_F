@@ -50,7 +50,7 @@ export default function Post() {
       // formdata.append('detected_image');
       formdata.append('detected_class', detected_default_solution);
       formdata.append('detected_default_solution', detected_default_solution);
-      formdata.append('solution_image', solution_image);
+      {solution_image && (formdata.append('solution_image', solution_image))};
       formdata.append('detected_contents', post.detected_contents);
       formdata.append('solution_contents', post.solution_contents);
       formdata.append('is_public', post.is_public);
@@ -108,6 +108,13 @@ export default function Post() {
 
   return (
     <>
+      <div className="Mypage-title">
+        <p><b>아 몰라 씨앗~</b></p>
+      </div>
+      <div className="Mypage-contents">
+        <p>진단받은 농작물의 개선된 이미지를 업로드하여</p>
+        <p>다른 사용자들에게 노하우를 공유하고 포인트도 챙겨보세요!</p>
+      </div>
       <div className="D_body">
         <img className="DS_img1" src={detected_image} width="300" height="200" />
         <span className="D_solution">
@@ -140,7 +147,7 @@ export default function Post() {
         </span>
         <br />
         <p></p>
-        <button onClick={onClickTempHandler}>돌아가기</button>
+        <button onClick={onClickTempHandler}>임시저장</button>
         {/* <button onClick={() => { }}>Public POST</button> */}
       </div>
     </>

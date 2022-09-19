@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./SolutionsBoard.scss"
 
 const SolutionsBoard = () => {
   const [solutionList, setSolutionList] = useState([
@@ -47,7 +48,13 @@ const SolutionsBoard = () => {
 
   return (
     <>
-      <h1>Solutions Page</h1>
+      <div className="Solution-title">
+            <p><b>게시판</b></p>
+          </div>
+          <div className="Solution-contents">
+            <p>다른 사용자들과 함께 소통을 해보세요.</p>
+            <p>자신의 경험과 노하우를 공유해 보세요.</p>
+          </div>
       <div className="mySolutions">
         {/* <h1>My Solution lists</h1> */}
         {solutionList.filter(data => data.id !== null).map((data)=>{

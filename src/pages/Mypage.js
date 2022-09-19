@@ -80,13 +80,12 @@ const Mypage = () => {
 
   return (
     <>
-      <div className="User_imform">
-        <ul>
-          <li>User Email : {user}</li>
-          <li>User pk : {userId}</li>
-          <li>User Point : { }</li>
-          <li></li>
-        </ul>
+      <div className="Mypage-title">
+        <p><b>마이페이지</b></p>
+      </div>
+      <div className="Mypage-contents">
+        <p>진단받은 농작물의 개선된 이미지를 업로드하여</p>
+        <p>다른 사용자들에게 노하우를 공유하고 포인트도 챙겨보세요!</p>
       </div>
       <div className="mySolutions">
         <h1>My Solution lists</h1>

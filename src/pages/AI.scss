@@ -8,6 +8,21 @@
 // .AI-bg{
 //   background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url(../components/img/doctor-bg.jpeg) center;
 // }
+
+.AI-title{
+  font-size: 25px;
+  padding-top: 120px ;
+  margin-bottom: -90px;
+}
+
+.AI-contents{
+  height: 200px;
+  padding-top: 100px;
+  margin-top: -50px;
+  margin-bottom: -170px;
+  background-color: #e1e3e6;
+}
+
 .image-item {
   display: inline;
   margin: 10px 0;
@@ -154,21 +169,41 @@
   padding: 4px;
 }
 
+.dd-solution{
+  margin-top: -400px;
+  margin-left: 42%;
+  // border: 2px solid gray;
+  width: 55%;
+  height: 400px;
+  display: flex;
+  padding: 2px;
+  font-size: 18px;
+}
+
 .dstitle{
   margin-top: 5%;
-  margin-bottom: -2%;
+  margin-bottom: -6.5%;
   margin-left: 5%;
   display: flex;
   font-size: 25px;
   width: 120px;
-  border-bottom: 7px solid  ;
-  border-image: linear-gradient(90deg, rgba(177,201,252,1) 0%, rgba(42,86,182,1) 51%, rgba(0,23,71,1) 100%);
+  border-top: 7px solid  ;
+  border-image: linear-gradient(90deg, rgba(62,104,195,1) 8%, rgba(27,66,153,1) 18%, rgba(7,27,68,1) 27%, rgba(0,0,0,1) 34%, rgba(255,255,255,1) 35%, rgba(255,255,255,1) 100%);
   border-image-slice: 1;
+  z-index: -1;
+}
+
+.dsBg{
+  background-color: #e1e3e6;
+  margin-top: 5%;
+  margin-bottom: -4%;
+  padding:10px;
+  height:550px
 }
 
 .Card1 {
   display: flex;
-  margin: 2% 5%;
+  margin: 6% 5%;
 
   &__Card2 {
     margin: 3% auto;
@@ -183,5 +218,5 @@
 
 .aibtn{
   margin: 15px 20px;
-  margin-top: -25px;
+  margin-top: -40px;
 }

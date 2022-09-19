@@ -78,6 +78,8 @@ export const AuthProvider = ({children}) => {
             localStorage.setItem('token', data.access_token);
             localStorage.setItem('user', data.user.email);
             setCookie('refresh', data.refresh_token)
+            alert('회원가입이 되셨습니다!🎉')
+            navigate("/login")
             // history.push('/')
         }else{
             alert('Register Failed!')
