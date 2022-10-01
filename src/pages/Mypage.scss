@@ -1,0 +1,182 @@
+.Mypage-title {
+  font-size: 25px;
+  padding-top: 120px;
+  margin-bottom: -90px;
+}
+
+.Mypage-contents {
+  display: grid;
+  grid-template-columns: repeat(9,11%);
+  grid-template-rows: 50% 50%;
+  height: 200px;
+  padding-top: 75px;
+  margin-top: -50px;
+  margin-bottom: -170px;
+  background-color: #e1e3e6;
+}
+
+.mySolutions{
+  margin-top: 200px;
+}
+
+
+.imagelogo1{
+  grid-column-start: 3;
+  grid-column-end: 4;
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  
+}
+.imagelogo2{
+  grid-column-start: 4;
+  grid-column-end: 5;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+}
+.imagelogo3{
+  grid-column-start: 5;
+  grid-column-end: 6;
+  width: 65px;
+  height: 65px;
+  margin: auto;
+}
+.imagelogo4{
+  grid-column-start: 6;
+  grid-column-end: 7;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+}
+.imagelogo5{
+  grid-column-start: 7;
+  grid-column-end: 8;
+  width: 60px;
+  height: 60px;
+  margin: auto;
+}
+
+
+.item1{
+  grid-column-start: 3;
+  grid-column-end: 4;
+  font-size: large;
+  margin: auto;
+
+}
+.item2{
+  grid-column-start: 5;
+  grid-column-end: 6;
+  font-size: large;
+  margin: auto;
+
+}
+.item3{
+  grid-column-start: 7;
+  grid-column-end: 8;
+  font-size: large;
+  margin: auto;
+}
+
+
+@media (max-width:1322px) {
+
+  
+  .imagelogo1{
+    width: 55px;
+    height: 55px;
+
+  }
+  .imagelogo2{
+    width: 35px;
+    height: 35px;
+  }
+  .imagelogo3{
+    width: 65px;
+    height: 65px;
+  }
+  .imagelogo4{
+    width: 35px;
+    height: 35px;
+  }
+  .imagelogo5{
+    width: 55px;
+    height: 55px;
+  }
+  
+  
+  .item1{
+    font-size: 16px;
+  }
+  .item2{
+    font-size: 16px;
+  }
+  .item3{
+    font-size: 16px;
+  }
+  .AI-title {
+
+    font-size: 25px;
+  }
+}  
+
+@media (max-width:1322px) {
+
+  
+  .imagelogo1{
+    width: 55px;
+    height: 55px;
+
+  }
+  .imagelogo2{
+    width: 35px;
+    height: 35px;
+  }
+  .imagelogo3{
+    width: 65px;
+    height: 65px;
+  }
+  .imagelogo4{
+    width: 35px;
+    height: 35px;
+  }
+  .imagelogo5{
+    width: 55px;
+    height: 55px;
+  }
+  
+  
+  .item1{
+    font-size: 14px;
+  }
+  .item2{
+    font-size: 14px;
+  }
+  .item3{
+    font-size: 14px;
+  }
+  .AI-title {
+
+    font-size: 25px;
+  }
+}  
+
+.title-point{
+  margin-top: -200px;
+  text-align: right;
+  background: linear-gradient(90deg, rgba(255,255,255,1) 84%, rgba(199,243,255,1) 85%, rgba(193,242,255,1) 100%);
+  background-size: 0% 0%;
+
+  
+
+  &:hover{
+   background-size: 100%;
+   transition: 0.25s ease-in;
+  }
+
+}
+
+.title-list{
+  text-align: center;
+}

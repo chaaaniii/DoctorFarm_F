@@ -23,7 +23,7 @@ const LoginPage = () => {
                         <input type="password" name='password' className='write' placeholder="   Password를 입력하세요" />
                     </div>
                     <div className='submit'>
-                        <button type="submit" className="btn" onClick='checkPW();'>Login</button>
+                        <button type="submit" className="btn" onClick='checkPW();'>로그인</button>
                         <p className="margin">계정이 없으신가요? <a href='/RegisterPage'>회원가입하러 가기</a></p>
                     </div>
 

@@ -21,6 +21,7 @@ const RegisterPage = () => {
                     <div>
                         <img className='register-icon' src={pw} alt='password' />
                         <input type="password" name='password1' className='registerwrite' placeholder="   Password를 입력하세요" />
+                        <p className='regi-font'>8~16자 영문 소문자, 숫자, 특수문자를 사용하세요.</p>
                     </div>
                     <div>
                         <img className='register-icon' src={pw2} alt='password' />

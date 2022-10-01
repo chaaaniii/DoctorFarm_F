@@ -12,6 +12,98 @@
     background-color: #e1e3e6;
 }
 
-.mySolutions{
+.mySolutions {
     margin-top: 200px;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 5px;
+}
+
+.list {
+    margin-bottom: 3%;
+    border: 0px solid black;
+
+
+}
+
+.post-title {
+    font-size: 20px;
+    margin-bottom: 1%;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 10px;
+    background-color: rgb(215, 229, 241);
+    height: 50px;
+
+    &__name {
+        text-align: left;
+    }
+
+    &__writer {
+        text-align: right;
+        margin-top: -50px;
+    }
+}
+
+.post-contents {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    height: 220px;
+
+
+    &__improved {
+
+        margin: auto;
+
+
+    }
+}
+
+.post-contents-img {
+    float: left;
+    margin: auto;
+}
+
+.post-contents-solution {
+    width: 100%;
+    height: 200px;
+    // border-right: 1px solid gray;
+    margin: auto;
+    padding-right: 10%;
+    white-space: pre-wrap;
+    text-align: left;
+    margin-left: 2%;
+    margin-bottom: -100px;
+    padding-top: 2px;
+
+    &__textbox {
+        border: 2px;
+        resize: none;
+        height: 95px;
+        width: 100%;
+        margin-top: -80px;
+        // border-bottom: 2px solid black;
+
+        &__top{
+            border-bottom: 2px solid black;
+
+        }
+    
+    }
+}
+
+.post-contents-improved-contents{
+    width: 100%;
+    height: 200px;
+    margin: auto;
+    padding-right: 10%;
+    white-space: pre-wrap;
+    text-align: left;
+    margin-left: 2%;
+    margin-bottom: -100px;
+    padding-top: 2px;
+    margin-top: -160px;
+
 }

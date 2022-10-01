@@ -3,34 +3,36 @@
 .DS_img1 {
     display: flex;
     justify-content: left;
-    margin-left: 7%;
+    margin-left: 10%;
     margin-top: 3%;
-    width: 400px;
+    width: 550px;
     height: 400px;
     border: 2px solid gray;
+    border-radius: 5%;
     padding: 5px;
-
 }
 
 .DS_img2 {
     display: flex;
     justify-content: left;
-    margin-left: 7%;
-    margin-top: 1%;
-    width: 400px;
+    margin-left: 10%;
+    margin-top: 4%;
+    width: 550px;
     height: 400px;
     border: 2px solid gray;
+    border-radius: 5%;
     padding: 5px;
+
 
 }
 
 .D_solution {
     margin-left: 40%;
     margin-right: 10%;
-    margin-top: -400px;
+    margin-top: -425px;
     margin-bottom: 50px;
-    border: 2px solid gray;
-    height: 400px;
+    border: 0px solid gray;
+    height: 425px;
     width: 50%;
 
 }
@@ -42,32 +44,62 @@
 }
 
 .pv_input {
-    margin-top: 25px;
+    margin-top: 1%;
     display: flex;
-    margin-left: 7%;
+    margin-left: 10%;
+}
+
+.upload-img-guide {
+    font-size: 17px;
+    margin-top: 3%;
+    margin-bottom: -3%;
+    margin-left: 10%;
+    display: flex;
 }
 
 .S_solution {
     margin-left: 40%;
     margin-right: 10%;
-    margin-top: -420px;
+    margin-top: -470px;
     margin-bottom: 50px;
-    border: 2px solid gray;
+    // border: 2px solid gray;
+    // border-radius: 5%;
     height: 400px;
     width: 50%;
     padding: 2px;
-
 }
 
 .textarea {
     resize: none;
-    border: 1px solid black;
+    border: 2px solid gray;
+    border-radius: 3%;
     height: 390px;
     width: 100%;
-
+    font-size: 17px;
 }
 
-button {
+.pu-title {
+    margin: 3% 3%;
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: -20px;
+}
+
+.pu-symptom {
+    margin: 3% 3%;
+    font-size: 16px;
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+.pu-solution {
+    margin: 3% 3%;
+    font-size: 16px;
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+.Postupdate-button {
     cursor: pointer;
     outline: none;
     padding: 0.75rem 1.25rem;
@@ -79,17 +111,40 @@ button {
     border: 1px solid transparent;
     transition: 0.3s ease all;
     margin: 20px 20px;
+
+    &:hover {
+        border-color: $primary;
+        background: rgba($primary, 0.1);
+        color: $primary;
+      }
+
 }
 
-@media only screen and (max-width : 1220px) {
+.Postupdate-title {
+    font-size: 25px;
+    padding-top: 120px;
+    margin-bottom: -90px;
+}
+
+.Postupdate-contents {
+    height: 200px;
+    padding-top: 100px;
+    margin-top: -50px;
+    margin-bottom: -170px;
+    background-color: #e1e3e6;
+    font-size: 17px;
+}
+
+
+@media only screen and (max-width : 1292px) {
 
     .DS_img1 {
         display: flex;
         justify-content: left;
         margin-left: 5%;
         margin-top: 3%;
-        width: 300px;
-        height: 250px;
+        width: 400px;
+        height: 380px;
         border: 2px solid gray;
         padding: 5px;
 
@@ -99,9 +154,9 @@ button {
         display: flex;
         justify-content: left;
         margin-left: 5%;
-        margin-top: 1%;
-        width: 300px;
-        height: 250px;
+        margin-top: 3%;
+        width: 400px;
+        height: 380px;
         border: 2px solid gray;
         padding: 5px;
 
@@ -110,10 +165,10 @@ button {
     .D_solution {
         margin-left: 40%;
         margin-right: 22%;
-        margin-top: -250px;
+        margin-top: -379px;
         margin-bottom: 0px;
-        border: 2px solid gray;
-        height: 250px;
+        border: 0px solid gray;
+        height: 380px;
     }
 
     .D_body {
@@ -130,10 +185,10 @@ button {
     .S_solution {
         margin-left: 40%;
         margin-right: 22%;
-        margin-top: -273px;
+        margin-top: -449px;
         margin-bottom: 0px;
-        border: 2px solid gray;
-        height: 250px;
+        border: 0px solid gray;
+        height: 380px;
         width: 50%;
         padding: 2px;
 
@@ -142,9 +197,44 @@ button {
     .textarea {
         resize: none;
         border: 1px solid black;
-        height: 242px;
+        height: 372px;
         width: 100%;
 
+    }
+
+    .pu-title {
+        margin: 3% 3%;
+        font-size: 16px;
+        text-align: left;
+        margin-bottom: -20px;
+        margin-top: 0px;
+    }
+
+    .pu-symptom {
+        margin: 3% 3%;
+        font-size: 16px;
+        text-align: left;
+        white-space: pre-wrap;
+    }
+
+    .pu-solution {
+        // margin: 3% 3%;
+        font-size: 16px;
+        text-align: left;
+        white-space: pre-wrap;
+        margin-top: 0px;
+    }
+
+    .pu-dsolution {
+        margin-top: -10px;
+    }
+
+    .upload-img-guide {
+        font-size: 17px;
+        margin-top: 3%;
+        margin-bottom: -2%;
+        margin-left: 5%;
+        display: flex;
     }
 
 

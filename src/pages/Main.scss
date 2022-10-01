@@ -7,10 +7,8 @@
     display: relative;
     z-index: 0;
     position: relative;
-    margin-top: -35%;
-    margin-bottom: 21.7%;
-
-
+    margin-top: -35.5%;
+    margin-bottom: 24.7%;
 }
 
 .bg-video {
@@ -21,15 +19,31 @@
     // margin-top: -100px;
 }
 
+@media only screen and (max-width : 1292px) {
+    .Mainhead {
+        // height: 770px;
+        // padding-top: 300px;
+        // background: url(../components/img/doctor-bg.jpeg) no-repeat center;
+        // background-size: cover;
+        width: 100%;
+        display: relative;
+        z-index: 0;
+        position: relative;
+        margin-top: -35.5%;
+        margin-bottom: 19.9%;
+    }
+}
+
 .AI {
     color: aliceblue;
     display: flex;
     margin-left: 8%;
+    letter-spacing: 1.3px;
     margin-bottom: 1%;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
     text-align: left;
-    // margin-top: -300px;
-    // margin-bottom: 300px;
+    // margin-top: -400px;
+    // margin-bottom: 400px;
     z-index: -10;
 
 }

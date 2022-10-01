@@ -20,6 +20,7 @@ import Mypage from './pages/Mypage';
 import SolutionsBoard from './pages/SolutionsBoard';
 import { AuthProvider } from './context/AuthContext';
 import PostUpdate from './pages/Postupdate';
+import Introduce from './pages/Introduce'
 
 // import { AiOutlinePicture } from "react-icons/ai";
 
@@ -40,7 +41,8 @@ function App() {
               <Route path='/mypage/post' element={<Post />}></Route>
               <Route path='/mypage' element={<Mypage />}></Route>
               <Route path='/solutions' element={<SolutionsBoard />}></Route>
-              <Route path='/postupdate' element={<PostUpdate />}></Route>              
+              <Route path='/postupdate' element={<PostUpdate />}></Route>  
+              <Route path='/introduce' element={<Introduce/>}></Route>             
             </Routes>
             <Scrolltop />
             <Footer />

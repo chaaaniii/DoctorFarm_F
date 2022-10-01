@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext  } from "react";
+import React, { useEffect, useState, useContext } from "react";
 // import styled from "@emotion/styled";
 import classes from "./Navbar.module.scss";
 import { Link, useNavigate } from "react-router-dom";
@@ -56,22 +56,22 @@ const Icon = styled.span`
 `;
 
 
- 
+
 
 
 const Navbar = () => {
-    let {user, logoutUser} = useContext(AuthContext)
-    
+    let { user, logoutUser } = useContext(AuthContext)
+
     const navigate = useNavigate();
-    
+
     const [menuOpen, setMenuOpen] = useState(false);
-    
+
     const [size, setSize] = useState({
         width: undefined,
         height: undefined,
     });
     const handleClick = () => setMenuOpen(!menuOpen);
-  
+
     const [ScrollY, setScrollY] = useState(0); // window 의 pageYOffset값을 저장
     const [ScrollActive, setScrollActive] = useState(false);
     function handleScroll() {
@@ -80,25 +80,25 @@ const Navbar = () => {
             setScrollActive(true);
         } else {
             setScrollY(window.pageYOffset);
-        setScrollActive(false);
+            setScrollActive(false);
         }
     }
     useEffect(() => {
         function scrollListener() {
-        window.addEventListener("scroll", handleScroll);
+            window.addEventListener("scroll", handleScroll);
         } //  window 에서 스크롤을 감시 시작
-    scrollListener(); // window 에서 스크롤을 감시
+        scrollListener(); // window 에서 스크롤을 감시
         return () => {
-          window.removeEventListener("scroll", handleScroll);
-    }; //  window 에서 스크롤을 감시를 종료
-  });
+            window.removeEventListener("scroll", handleScroll);
+        }; //  window 에서 스크롤을 감시를 종료
+    });
 
 
 
-  
 
 
-  
+
+
 
     useEffect(() => {
         const handleResize = () => {
@@ -120,7 +120,7 @@ const Navbar = () => {
 
     const menuToggleHandler = () => {
         setMenuOpen((p) => !p);
-        
+
     };
 
     const ctaClickHandler = () => {
@@ -130,60 +130,59 @@ const Navbar = () => {
 
     return (
         <div>
-        <header className={classes.header} >
-            <div className={ScrollActive? classes.header__content : classes.header__scroll }>
-                <Link to="/" className={classes.header__content__logo}>
-                    <img className={classes.header__content__logo} src={mainlogo}/>
-                </Link>
-                <nav
-                    className={`${classes.header__content__nav} ${
-                        menuOpen && size.width < 890 ? classes.isMenu : ""
-                    }`}
-                >
-                    
-                    <ul>
-                        <li>
-                            <Link to="/AI" onClick={menuToggleHandler}>
-                                진단
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/post" onClick={menuToggleHandler}>
-                                솔루션
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/solutions" onClick={menuToggleHandler}>
-                                게시판
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/mypage" onClick={menuToggleHandler}>
-                                마이페이지
-                            </Link>
-                        </li>
-                    </ul>
-                    {localStorage.getItem("user") ? (
-                        <button onClick={logoutUser}>Logout</button>
-                            )
-                    : (
-                        <button onClick={ctaClickHandler} >Login</button>
-                        )}
-          
-                </nav>
-                <div className={classes.header__content__toggle} onClick={handleClick} >
+            <header className={classes.header} >
+                <div className={ScrollActive ? classes.header__content : classes.header__scroll}>
+                    <Link to="/" className={classes.header__content__logo}>
+                        <img className={classes.header__content__logo} src={mainlogo} />
+                    </Link>
+                    <nav
+                        className={`${classes.header__content__nav} ${menuOpen && size.width < 890 ? classes.isMenu : ""
+                            }`}
+                    >
+
+                        <ul>
+                            <li>
+                                <Link to="/introduce" onClick={menuToggleHandler}>
+                                    소개
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/AI" onClick={menuToggleHandler}>
+                                    진단
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/solutions" onClick={menuToggleHandler}>
+                                    게시판
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/mypage" onClick={menuToggleHandler}>
+                                    마이페이지
+                                </Link>
+                            </li>
+                        </ul>
+                        {localStorage.getItem("user") ? (
+                            <button onClick={logoutUser}>로그아웃</button>
+                        )
+                            : (
+                                <button onClick={ctaClickHandler} >로그인</button>
+                            )}
+
+                    </nav>
+                    <div className={classes.header__content__toggle} onClick={handleClick} >
                         <MenuLabel htmlFor="navi-toggle" onClick={handleClick}>
                             <Icon clicked={menuOpen}></Icon>
                         </MenuLabel>
-                    {!menuOpen ? (
-                        <i className='fas fa-bars' onClick={menuToggleHandler} />
-                    ) : (
-                        <i className='fas fa-times' onClick={menuToggleHandler} />
-                    )}
+                        {!menuOpen ? (
+                            <i className='fas fa-bars' onClick={menuToggleHandler} />
+                        ) : (
+                            <i className='fas fa-times' onClick={menuToggleHandler} />
+                        )}
+                    </div>
                 </div>
-            </div>
-        </header>
-    
+            </header>
+
         </div>
     );
 };

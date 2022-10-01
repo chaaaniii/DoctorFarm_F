@@ -45,7 +45,7 @@ export default function Main() {
 
   return (
     <div className='Main-Body'>
-      <video className='bg-video' autoPlay loop>
+      <video className='bg-video' autoPlay muted loop playsinline>
         <source src={video} type="video/mp4" />
       </video>
       <span className='Mainhead'>
@@ -55,7 +55,7 @@ export default function Main() {
         모두 건강한 농작물을 키워봅시다. 
        
         </span></h3>
-        <button className='gotoAI' onClick={gotoAI}>진단하기</button>
+        <button className='gotoAI' onClick={gotoAI}>진료받기</button>
 
       </span>
 
